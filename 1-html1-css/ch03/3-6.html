@@ -1,0 +1,45 @@
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .menu-item {
+      background-color: gray;
+    }
+
+    /* 자손(자식) 선택자를 사용 */
+    /* 부모>자손(자식) */
+    /* 스타일은 자손에 적용 됨 */
+    ul>li {
+      background-color: gray;
+    }
+
+    /* 부모>자손(부모)>자손*/
+    /* ul>li>a {
+      color : antiquewhite
+    }*/
+
+    /* 후손 선택자를 사용 */
+    /* 부모 후손 */
+    ul>li>a {
+      color: antiquewhite;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <!-- 바로 하위 자식(자손,후손) -->
+    <h1>탬</h1>
+    <h2>맠</h2>
+    <h3>허니욜키</h3>
+    <ul>
+      <!-- 하위에 단계 상관없이 존재함 -> 후손 -->
+      <li><a href="">SHINee</a></li>
+      <li><a href="">nct</a></li>
+      <li><a href="">monstaX</a></li>
+    </ul>
+  </div>
+</body>
+
+</html>

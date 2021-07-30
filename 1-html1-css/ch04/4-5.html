@@ -1,0 +1,70 @@
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        p {
+            width: 250px;
+            height: 140px;
+            border: 3px solid black;
+        }
+
+        p:nth-child(1) {
+            /* 요소(element)의 크기보다 컨텐츠가 클떄 숨김처럼 */
+            /* overflow:넘침 */
+            /* hidden:숨김 */
+            overflow: hidden;
+        }
+
+        p:nth-child(2) {
+            overflow: scroll;
+        }
+
+        p:nth-child(3) {
+
+            overflow-y: scroll;
+        }
+
+        p:nth-child(4) {
+            overflow-y: auto;
+        }
+
+        p:nth-child(5) {
+            overflow: hidden;
+            /* 컨텐츠가 내용 밖으로 넘어서면 말 줄임표(...) */
+            text-overflow: ellipsis;
+            /* 빈공간은 기본적으로 밑으로 내림 */
+            /* 밑으로 안내림,옆으로 이어짐 */
+            white-space: nowrap;
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit quam nulla unde in quo nam, sint asperiores eum
+        harum quae reprehenderit voluptatum iste optio nisi fugiat quis, veritatis molestiae rem.
+    </p>
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit quam nulla unde in quo nam, sint asperiores eum
+        harum quae reprehenderit voluptatum iste optio nisi fugiat quis, veritatis molestiae rem.
+    </p>
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit quam nulla unde in quo nam, sint asperiores eum
+        harum quae reprehenderit voluptatum iste optio nisi fugiat quis, veritatis molestiae rem.
+    </p>
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit quam nulla unde in quo nam, sint asperiores eum
+        harum quae reprehenderit voluptatum iste optio nisi fugiat quis, veritatis molestiae rem.
+    </p>
+    <p title="harum quae reprehenderit voluptatum iste optio nisi fugiat quis, veritatis molestiae rem.">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit quam nulla unde in quo nam, sint asperiores eum
+    </p>
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit quam nulla unde in quo nam, sint asperiores eum
+        harum quae reprehenderit voluptatum iste optio nisi fugiat quis, veritatis molestiae rem.
+    </p>
+</body>
+
+</html>
