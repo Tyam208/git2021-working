@@ -1,0 +1,15 @@
+<html>
+
+<body>
+  <script>
+    let input = "";
+
+    while (i <3) {
+      input = prompt("문자를 입력하세요 x는 종료");
+      if (input == 'x') {
+        break;
+      }
+    }
+  </script>
+</body>
+</html>
