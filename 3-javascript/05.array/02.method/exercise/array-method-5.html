@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <script>
+      // 정렬을 하는데 기존배열을 고치면안됨
+      // 배열.sort는 기존배열을 변경함
+
+      function copySorted (arr) {
+        // 매개변수로 받은 배열을 복제
+        let copy = [...arr];
+        // return copy.sort((a,b) => - (a/;ocalCompare(b)));
+        return copy.sort();
+      }
+
+      let arr = ["HTML", "JavaScript", "CSS"];
+      let sorted = copySorted(arr);
+
+      console.log(sorted);  // CSS,HTML,JavaScript
+      console.log(arr);   // HTLM, JavaScript, CSS(no changes)
+    </script>
+  </body>
+</html>

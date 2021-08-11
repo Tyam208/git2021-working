@@ -1,0 +1,33 @@
+<html>
+<body>
+  <script>
+    function camelize(str) {
+      let strArr = atr.split("-");
+      console.log(strArr);
+
+      // 첫번째 반복
+      // acc = " "
+      // item = "background"
+      // index = 0
+      // acc = acc + "background"
+
+      // 첫번째 반복
+      // acc = "background"
+      // item = "color"
+      // index = 1
+      // acc = acc + "color"
+
+      // 최종 반환값
+      // acc = "backgroundColor"
+      str.reduce((acc, item, index) =>
+        acc + (index == 0 ? item : item[0].toUpperCase() + item.substr(1))
+        , "")
+
+    }
+
+    console.log(camelize("background-color"));
+    console.log(camelize("lost-style-imege"));
+    console.log(camelize("-webkit-transition"))
+  </script>
+</body>
+</html>
