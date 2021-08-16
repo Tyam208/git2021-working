@@ -134,11 +134,9 @@
         // 삭제버튼
         const btnRemove = event.target;
         // 삭제버튼의 부모 노드인 li
-        const tb = btnRemove.parentNode;
-        const tablelist = btnRemove.parentNode;
-        
-        tb.remove();
-        tableList.remove();
+        // const tb = btnRemove.parentNode;
+        const table = btnRemove.parentNode.parentNode;
+        table.remove();
       }
     }
   </script>
