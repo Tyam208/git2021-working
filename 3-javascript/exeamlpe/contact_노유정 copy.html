@@ -108,6 +108,23 @@
         return;
       }
 
+      // 로컬스토리지에 dlqfurehls 데이터를 추가 
+      //  1.
+      //  2.
+      //  3.
+
+      // 기존 데이터 조회 -> 추가 -> 데이터를 저장
+      // 로컬 스토리지에서 데이터 가져오기
+      const data = getdata();
+      //데이터의 id(유일값) 생성
+      const id = data.lenth > 0 ? data[0].id + 1 : 1;
+      
+      // 데이터의 가장 앞쪽에 추가함
+      data.unshift({ id, memo: txtName.value });
+      // 로컬 스토리지 저장
+      detData(data);
+
+
       // 생성할템플릿 문자열
       // 삭제 버튼에 remove라는 임의의 클래스를 넣음
       const tb = /*html*/`
@@ -137,6 +154,20 @@
         const tb = btnRemove.parentNode.parentNode;
         tb.remove();
       }
+    }
+
+    function setData(data) {
+      // 배열 데이터를 JSON문자열로 변환하여 저장 
+      localStorage.setItem(JSON.stringify(data));
+    }
+
+    function getData() {
+      // JSON문자열을 배열로 변환하여 반환
+      const data= JSON.parse(localStorage.getItem("todo"));
+      if (!data) {
+        data = [];
+      }
+      return data;
     }
   </script>
 </body>
