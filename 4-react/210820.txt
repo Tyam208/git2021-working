@@ -1,0 +1,9 @@
+React 컴포넌트가 재랜더링 되는 케이스
+  -state가 변경됐을때
+  -props 변경돼쓸떄
+  -부모 컴포넌트가 다시 렌더링될때
+    App > Generator > ListItem
+      
+
+
+      app scss
