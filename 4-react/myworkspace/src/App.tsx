@@ -6,8 +6,11 @@
 import "./App.scss";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import { Provider } from "react-redux"; // react 앱에 redux store를 제공해줌
+import { store } from "./store"; // redux store
 
-import Home from "./component/Home";
+import Home from "./domain/Home";
+import Profile from "./domain/profile/Profile";
 
 // SPA(Single Page Application)
 // : 페이지 파일이 1개, index.html
@@ -17,49 +20,55 @@ import Home from "./component/Home";
 
 // Lazy-Loading 처리
 // 컴포넌트를 방문하는 시점에 로딩함
-
-const Todo = lazy(() => import("./component/Todo"));
-const Feed = lazy(() => import("./component/Feed"));
-
+const Todo = lazy(() => import("./domain/todo/Todo"));
+const Feed = lazy(() => import("./domain/feed/Feed"));
+const Photo = lazy(() => import("./domain/Photo"));
 
 // React == 컴포넌트 개발 라이브러리
 function App() {
   return (
-    <Router>
-      {/* main container */}
-      <div style={{ width: "700px" }} className="mx-auto">
-        <nav
-          style={{ width: "200px", height: "100vh", top: "20px" }}
-          className="position-fixed"
-        >
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/todo">Todo</Link>
-            </li>
-            <li>
-              <Link to="/feeds">Feeds</Link>
-            </li>
-          </ul>
-        </nav>
-        <main style={{ marginLeft: "200px", marginTop: "20px" }}>
-          {/* Suspense 컴포넌트로 로딩중에 보여줄 화면을 처리하는 것 */}
-          {/* fallback={로딩중에 보여줄 컴포넌트} */}
-          <Suspense fallback={<div>Loading...</div>}>
-            <Switch>
-              {/* Switch 영역에 컴포넌트가 로딩됨 */}
+    <Provider store={store}>
+      <Router>
+        {/* main container */}
+        <div className="mx-auto">
+          <header className="app-bar d-flex justify-content-end bg-primary shadow">
+            <Profile />
+          </header>
+          <nav className="drawer-menu position-fixed bg-light shadow-sm">
+            <h3 className="ms-2">MY WORKSPACE</h3>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/todo">Todo</Link>
+              </li>
+              <li>
+                <Link to="/feeds">Feeds</Link>
+              </li>
+              <li>
+                <Link to="/photos">Photos</Link>
+              </li>
+            </ul>
+          </nav>
+          <main className="content-container">
+            {/* Suspense 컴포넌트로 로딩중에 보여줄 화면을 처리하는 것 */}
+            {/* fallback={로딩중에 보여줄 컴포넌트} */}
+            <Suspense fallback={<div>Loading...</div>}>
+              <Switch>
+                {/* Switch 영역에 컴포넌트가 로딩됨 */}
 
-              {/* 해당 경로에 대해서 로딩할 컴포넌트 목록을 작성 */}
-              <Route path="/" component={Home} exact />
-              <Route path="/todo" component={Todo} />
-              <Route path="/feeds" component={Feed} />
-            </Switch>
-          </Suspense>
-        </main>
-      </div>
-    </Router>
+                {/* 해당 경로에 대해서 로딩할 컴포넌트 목록을 작성 */}
+                <Route path="/" component={Home} exact />
+                <Route path="/todo" component={Todo} />
+                <Route path="/feeds" component={Feed} />
+                <Route path="/photos" component={Photo} />
+              </Switch>
+            </Suspense>
+          </main>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
