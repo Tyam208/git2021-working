@@ -1,6 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { constants } from "buffer";
-import Contact from "./Contact";
 
 
 export interface ContactItem {
@@ -51,11 +49,8 @@ const contactSlice = createSlice({
       );
     },
     modifyContact: (state, action: PayloadAction<ContactItem>) => {
-      // 생성해서 넘긴 객체
       const modifyItem = action.payload;
-      // state에 있는 객체
       const contactItem = state.data.find((item) => item.id === modifyItem.id);
-      // state에 있는 객체의 속성을 넘김 객체의 속성으로 변경
       if (contactItem) {
         contactItem.name = modifyItem.name;
         contactItem.email = modifyItem.email;

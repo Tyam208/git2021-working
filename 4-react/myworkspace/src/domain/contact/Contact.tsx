@@ -1,6 +1,4 @@
-// import { ReactChild, ReactFragment, ReactPortal, useRef, useState } from "react";
-// import Alert from "./base/Alert";
-// import produce from "immer";
+
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { RootState } from "../../store";
@@ -65,10 +63,7 @@ const Contact = () => {
         </table>
       </form>
     </>
-       
-        
   );
-        
 };
 
 export default Contact;

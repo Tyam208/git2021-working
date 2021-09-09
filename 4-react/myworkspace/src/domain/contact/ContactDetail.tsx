@@ -4,27 +4,20 @@ import { AppDispatch, RootState } from "../../store";
 import { removeContact } from "./ContactSlice";
 
 const ContactDetail = () => {
-  // useParam<타입>(), 매개변수들을 객체화할 형식을 제너릭으로 넣어줌
-  // Generic: <타입> 타입을 매개변수로 넣음
-  // 타입에 따라서 처리를 다르게 하기위함
-  // 객체지향 다형성(poly mophism): 같은 이름의 함수가 내부적으로 처리를 다르게 해줌
   const { id } = useParams<{ id: string }>();
   console.log(id);
 
-  // 타입 단언을 하지 않으면 추론에 의해서 PhotoItem | undefined 타입이 됨
-  // 타입 단언을 하면 반환 형식을 정의할 수 있음
   const contactItem = useSelector((state: RootState) =>
     state.contact.data.find((item) => item.id === +id)
-  ); // 반환형식을 타입 추론으로 처리
-  // ) as PhotoItem; // 타입 단언 (type assertion)
+  ); 
   console.log(contactItem);
 
   const history = useHistory();
   const dispatch = useDispatch<AppDispatch>();
 
   const handDeleteClick = () => {
-    dispatch(removeContact(+id)); // id값만 넣어서 삭제
-    history.push("/contactItem"); // 목록화면으로 이동
+    dispatch(removeContact(+id));
+    history.push("/contactItem"); 
   };
 
   return (

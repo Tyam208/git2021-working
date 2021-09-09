@@ -5,7 +5,6 @@ import { AppDispatch, RootState } from "../../store";
 import { modifyContact } from "./ContactSlice";
 
 const ContactEdit = () => {
-  // ------ 데이터를 가져오거나 변수를 선언하는 부분 --------
   const { id } = useParams<{ id: string }>();
 
   const contactItem = useSelector((state: RootState) =>
@@ -15,12 +14,10 @@ const ContactEdit = () => {
   const dispatch = useDispatch<AppDispatch>();
   const history = useHistory();
 
-  // const [url, setUrl] = useState<string | undefined>(contactItem?.contactUrl);
-
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const telRef = useRef<HTMLInputElement>(null);
-  const descTxta = useRef<HTMLTextAreaElement>(null);
+  const descText = useRef<HTMLTextAreaElement>(null);
   const fileInput = useRef<HTMLInputElement>(null);
 
   
@@ -32,18 +29,13 @@ const ContactEdit = () => {
 
       reader.onload = () => {
         if (contactItem) {
-          // 기존 데이터 카피
+     
           const item = { ...contactItem };
-          // 변경할 속성만 대입
+  
           item.name = nameRef.current ? nameRef.current.value : "";
           item.email = emailRef.current ? emailRef.current.value : "";
           item.tel = telRef.current ? telRef.current.value : "";
-          item.memo = descTxta.current?.value;
-          // item.photoUrl = reader.result ? reader.result.toString() : "";
-          // item.fileType = imageFile.type;
-          // item.fileName = imageFile.name;
-
-          // reducer로 state 수정 및 목록으로 이동
+          item.memo = descText.current?.value;
           dispatch(modifyContact(item));
           history.push("/contact");
         }
@@ -75,7 +67,7 @@ const ContactEdit = () => {
                   className="form-control"
                   style={{ height: "40vh" }}
                   defaultValue={contactItem?.memo}
-                  ref={descTxta}
+                  ref={descText}
                 ></textarea>
               </td>
             </tr>
