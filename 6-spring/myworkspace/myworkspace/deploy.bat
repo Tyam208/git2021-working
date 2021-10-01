@@ -1,0 +1,2 @@
+scp -i "c:\\keyfile\myworkspace.pem" -r ./build/libs/myworkspace*.jar ubuntu@ec2-15-164-213-120.ap-northeast-2.compute.amazonaws.com:/home/ubuntu/app/myworkspace
+scp -i "c:\\keyfile\myworkspace.pem" -r ./run.sh ubuntu@ec2-15-164-213-120.ap-northeast-2.compute.amazonaws.com:/home/ubuntu/app/myworkspace

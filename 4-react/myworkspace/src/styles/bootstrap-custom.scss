@@ -7,12 +7,12 @@
 /* ------------------------------------------------------ */
 // bootstrap 변수를 수정해야한다면 이 위치에(bootstrap variables 위에)
 // https://coolors.co/306b34-1c5253-f3ffc6-c3eb78-b6174b
-$primary: #483d8b;
+$primary: #2c3e50;
 $secondary: #95a5a6;
 $success: #18bc9c;
 $info: #3498db;
-$danger: #B22222;
-$warning: #FF7F50;
+$danger: #e74c3c;
+$warning: #f39c12;
 $light: #f8f9fa;
 $dark: #212529;
 
@@ -44,6 +44,7 @@ $border-radius-sm: 0;
 @import "~bootstrap/scss/modal";
 @import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/spinners";
 /* ---------------------------------------------- */
 @import "~bootstrap/scss/helpers";
 
