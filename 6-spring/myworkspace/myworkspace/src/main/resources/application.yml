@@ -19,3 +19,8 @@ spring:
   jpa:
     show-sql: true
     generate-ddl: true
+  chache:
+    type: redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
